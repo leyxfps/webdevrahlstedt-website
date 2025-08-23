@@ -85,8 +85,7 @@
                 </div>
             </section>
 
-            <!-- ... other sections ... -->
-             <!-- Leistungen Section -->
+            <!-- Leistungen Section -->
             <section id="leistungen" class="py-20 md:py-28 bg-white">
                 <div class="container mx-auto px-6">
                     <div class="scroll-animate">
@@ -224,7 +223,6 @@
             <div class="container mx-auto px-6 text-center">
                 <p>&copy; 2025 WebDev Rahlstedt | Marcel Stein</p>
                 <p class="mt-2 text-sm">
-                    <!-- GEÄNDERT: Links rufen jetzt JavaScript-Funktionen auf -->
                     <a href="#" onclick="showPage('impressum'); return false;" class="hover:text-white transition-colors">Impressum</a> | 
                     <a href="#" onclick="showPage('datenschutz'); return false;" class="hover:text-white transition-colors">Datenschutz</a>
                 </p>
@@ -232,7 +230,7 @@
         </footer>
     </div>
 
-    <!-- NEU: Impressum Seite -->
+    <!-- Impressum Seite -->
     <div id="impressum" class="legal-page bg-gray-50">
         <div class="container mx-auto px-6 py-12 md:py-20 max-w-4xl">
             <h1 class="text-4xl font-bold mb-8">Impressum</h1>
@@ -255,7 +253,7 @@
         </div>
     </div>
 
-    <!-- NEU: Datenschutz Seite -->
+    <!-- Datenschutz Seite -->
     <div id="datenschutz" class="legal-page bg-gray-50">
         <div class="container mx-auto px-6 py-12 md:py-20 max-w-4xl">
             <h1 class="text-4xl font-bold mb-8">Datenschutzerklärung</h1>
@@ -273,7 +271,89 @@
 
     <!-- Modal für Portfolio-Projekt -->
     <div id="portfolio-modal" class="modal fixed inset-0 bg-black/80 z-50 items-center justify-center p-4">
-        <!-- ... Modal content ... -->
+        <div class="modal-content bg-white rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition-colors z-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <div class="p-8 border-b sticky top-0 bg-white/95 backdrop-blur-sm">
+                <h2 class="text-3xl font-bold text-gray-900">Restaurant "Elb-Genuss"</h2>
+                <p class="text-gray-600">Beispielprojekt: Website mit Speisekarte & Lieferdienst-Integration</p>
+            </div>
+            <div class="p-8">
+                <div class="mb-10">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Projekt-Ziele & Umsetzung</h3>
+                    <p class="text-gray-600">Das Ziel war die Erstellung einer visuell ansprechenden und benutzerfreundlichen Website für das fiktive Restaurant "Elb-Genuss". Der Fokus lag auf einer klaren Präsentation der Speisen, der einfachen Kontaktaufnahme und der Integration eines Online-Bestellsystems, um den Lieferservice zu fördern und neue Kunden zu gewinnen.</p>
+                </div>
+                <div class="mb-10">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Umgesetzte Features</h3>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span>Vollständig responsives Design</span></li>
+                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span>Interaktive Speisekarte mit Bildern</span></li>
+                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span>SEO-Grundoptimierung</span></li>
+                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span>Simulierte Lieferando-Anbindung</span></li>
+                    </ul>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Digitale Speisekarte</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="font-semibold text-lg border-b-2 border-amber-500 pb-1 mb-3">Vorspeisen</h4>
+                                <div class="flex items-start space-x-4">
+                                    <img src="https://placehold.co/100x100/f9e5d7/333333?text=Bruschetta" alt="Bruschetta" class="w-20 h-20 rounded-md object-cover flex-shrink-0">
+                                    <div>
+                                        <div class="flex justify-between"><span>Hafen-Bruschetta</span><span class="font-semibold">8,50 €</span></div>
+                                        <p class="text-sm text-gray-500">Geröstetes Brot mit Tomaten, Basilikum & Knoblauch</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg border-b-2 border-amber-500 pb-1 mb-3">Hauptgänge</h4>
+                                <div class="flex items-start space-x-4 mb-4">
+                                    <img src="https://placehold.co/100x100/d6eaf8/333333?text=Pannfisch" alt="Pannfisch" class="w-20 h-20 rounded-md object-cover flex-shrink-0">
+                                    <div>
+                                        <div class="flex justify-between"><span>Hamburger Pannfisch</span><span class="font-semibold">21,00 €</span></div>
+                                        <p class="text-sm text-gray-500">Gebratenes Fischfilet auf Bratkartoffeln mit Senfsauce</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <img src="https://placehold.co/100x100/fdebd0/333333?text=Schnitzel" alt="Schnitzel" class="w-20 h-20 rounded-md object-cover flex-shrink-0">
+                                    <div>
+                                        <div class="flex justify-between"><span>Wiener Schnitzel</span><span class="font-semibold">24,50 €</span></div>
+                                        <p class="text-sm text-gray-500">Mit lauwarmem Kartoffelsalat und Preiselbeeren</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg border-b-2 border-amber-500 pb-1 mb-3">Desserts</h4>
+                                <div class="flex items-start space-x-4">
+                                    <img src="https://placehold.co/100x100/f5b7b1/333333?text=Rote+Grütze" alt="Rote Grütze" class="w-20 h-20 rounded-md object-cover flex-shrink-0">
+                                    <div>
+                                        <div class="flex justify-between"><span>Rote Grütze</span><span class="font-semibold">9,00 €</span></div>
+                                        <p class="text-sm text-gray-500">Mit frischer Vanillesauce</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-6 self-start sticky top-[100px]">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Lieferando-Integration</h3>
+                        <div class="border rounded-lg p-4 text-center">
+                            <img src="https://placehold.co/150x50/ff8000/ffffff?text=Lieferando" alt="Lieferando Logo" class="mx-auto mb-4">
+                            <p class="text-lg font-semibold mb-1">Jetzt bei Elb-Genuss bestellen!</p>
+                            <p class="text-sm text-gray-500 mb-4">Schnell & einfach nach Hause geliefert.</p>
+                            <div class="flex items-center justify-center text-green-600 font-bold mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                <span>Geöffnet</span>
+                            </div>
+                            <button class="w-full bg-orange-500 text-white font-bold py-3 rounded-lg hover:bg-orange-600 transition-colors">
+                                Zur Bestellung
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -318,4 +398,4 @@
         }
     </script>
 </body>
-</html>
+</ht
