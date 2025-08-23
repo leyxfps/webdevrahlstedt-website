@@ -6,6 +6,9 @@
     <title>WebDev Rahlstedt | Professionelle Websites für lokale Unternehmen</title>
     <meta name="description" content="Ihr lokaler Partner aus Hamburg-Rahlstedt für modernes Webdesign, schnelle Websites und Suchmaschinenoptimierung.">
     
+    <!-- NEU: Favicon (Logo im Browser-Tab) -->
+    <link rel="icon" href="data:image/svg+xml,%3csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='48' height='48' rx='8' fill='%231F2937'/%3e%3cpath d='M12 15L18 33L24 15' stroke='%232563EB' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3e%3cpath d='M24 15L30 33L36 15' stroke='%23FFFFFF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e">
+
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,7 +58,15 @@
     <!-- Header & Navigation -->
     <header class="bg-white/90 backdrop-blur-lg shadow-md sticky top-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-blue-600">WebDev Rahlstedt</a>
+            <!-- NEU: Logo im Header -->
+            <a href="#" class="flex items-center space-x-3" aria-label="WebDev Rahlstedt Homepage">
+                <svg class="h-10 w-10" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="48" height="48" rx="8" fill="#1F2937"/>
+                    <path d="M12 15L18 33L24 15" stroke="#2563EB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24 15L30 33L36 15" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="text-xl font-bold text-gray-800 tracking-tight">WebDev Rahlstedt</span>
+            </a>
             <nav class="hidden md:flex space-x-8">
                 <a href="#leistungen" class="nav-link">Leistungen</a>
                 <a href="#portfolio" class="nav-link">Portfolio</a>
@@ -204,11 +215,11 @@
                     <div class="space-y-4">
                         <div class="flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                            <a href="mailto:test@webdev-rahlstedt.de" class="text-blue-600 hover:underline">hallo@webdev-rahlstedt.de</a>
+                            <a href="mailto:hallo@webdev-rahlstedt.de" class="text-blue-600 hover:underline">hallo@webdev-rahlstedt.de</a>
                         </div>
                         <div class="flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                            <a href="tel:+4915253069452" class="text-blue-600 hover:underline">01525 3069452    </a>
+                            <a href="tel:+4917612345678" class="text-blue-600 hover:underline">0176 12345678</a>
                         </div>
                     </div>
                 </div>
