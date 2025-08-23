@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebDev Rahlstedt | Professionelle Websites für lokale Unternehmen</title>
+    <meta name="description" content="Ihr lokaler Partner aus Hamburg-Rahlstedt für modernes Webdesign, schnelle Websites und Suchmaschinenoptimierung.">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Custom Styles & Animations */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .animate-fade-in-down { animation: fadeInDown 0.8s ease-out forwards; }
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        
+        .scroll-animate { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .scroll-animate.visible { opacity: 1; transform: translateY(0); }
+
+        .section-title { font-size: 1.875rem; line-height: 2.25rem; font-weight: 700; text-align: center; margin-bottom: 1rem; }
+        @media (min-width: 768px) { .section-title { font-size: 2.25rem; line-height: 2.5rem; } }
+        .section-subtitle { font-size: 1.125rem; line-height: 1.75rem; color: #4B5563; text-align: center; margin-bottom: 3rem; }
+        
+        .nav-link { color: #4B5563; transition: color 0.3s; font-weight: 600; position: relative; }
+        .nav-link:hover { color: #2563EB; }
+        .nav-link::after { content: ''; position: absolute; width: 0%; height: 2px; background-color: #2563EB; bottom: -4px; left: 50%; transform: translateX(-50%); transition: width 0.3s; }
+        .nav-link:hover::after { width: 100%; }
+
+        /* Modal Styles */
+        .modal { display: none; }
+        .modal.is-open { display: flex; animation: fadeIn 0.3s ease; }
+        .modal-content { animation: fadeInUp 0.5s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/90 backdrop-blur-lg shadow-md sticky top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600">WebDev Rahlstedt</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#leistungen" class="nav-link">Leistungen</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#vorteil" class="nav-link">Ihr Vorteil</a>
+                <a href="#ueber-mich" class="nav-link">Über Mich</a>
+                <a href="#kontakt" class="nav-link">Kontakt</a>
+            </nav>
+            <button class="md:hidden text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative text-white">
+            <div class="absolute inset-0">
+                <img src="https://cdn.pixabay.com/photo/2015/09/21/14/48/banner-949946_1280.jpg" alt="Abstrakter Hintergrund mit geometrischen Formen" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gray-900/60"></div>
+            </div>
+            <div class="relative container mx-auto px-6 py-24 md:py-40 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4 drop-shadow-lg animate-fade-in-down">Moderne Websites für Rahlstedts Unternehmen</h1>
+                <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8 drop-shadow-md animate-fade-in-up" style="animation-delay: 0.3s;">Ihr lokaler Experte für professionelle Webauftritte, die Kunden überzeugen und Ihr Geschäft voranbringen.</p>
+                <a href="#kontakt" class="bg-blue-600 text-white font-bold py-4 px-10 rounded-lg text-lg hover:bg-blue-700 transition-all duration-300 inline-block transform hover:scale-105 shadow-xl animate-fade-in-up" style="animation-delay: 0.6s;">Kostenloses Erstgespräch anfordern</a>
+            </div>
+        </section>
+
+        <!-- Leistungen Section -->
+        <section id="leistungen" class="py-20 md:py-28 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="scroll-animate">
+                    <h2 class="section-title text-gray-900">Was ich für Sie tun kann</h2>
+                    <p class="section-subtitle">Ein umfassender Service für Ihren digitalen Erfolg.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 scroll-animate" style="transition-delay: 0.1s;">
+                        <div class="bg-blue-100 text-blue-600 rounded-full h-12 w-12 flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Individuelles Webdesign</h3>
+                        <p class="text-gray-600">Einzigartige Designs, die perfekt zu Ihrer Marke passen und Ihre Zielgruppe ansprechen.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 scroll-animate" style="transition-delay: 0.2s;">
+                         <div class="bg-blue-100 text-blue-600 rounded-full h-12 w-12 flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Responsive Entwicklung</h3>
+                        <p class="text-gray-600">Perfekte Darstellung Ihrer Website auf allen Geräten – vom Smartphone bis zum Desktop.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 scroll-animate" style="transition-delay: 0.3s;">
+                         <div class="bg-blue-100 text-blue-600 rounded-full h-12 w-12 flex items-center justify-center mb-4">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">SEO-Grundlagen</h3>
+                        <p class="text-gray-600">Technische Optimierung Ihrer Seite, damit Sie bei Google besser gefunden werden.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 scroll-animate" style="transition-delay: 0.4s;">
+                         <div class="bg-blue-100 text-blue-600 rounded-full h-12 w-12 flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Wartung & Pflege</h3>
+                        <p class="text-gray-600">Regelmäßige Updates und Sicherungen, damit Ihre Website sicher und aktuell bleibt.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                <div class="scroll-animate">
+                    <h2 class="section-title text-gray-900">Ein Blick auf meine Arbeit</h2>
+                    <p class="section-subtitle">Hier sehen Sie ein Beispielprojekt, das meine Fähigkeiten demonstriert.</p>
+                </div>
+                <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden group cursor-pointer scroll-animate" style="transition-delay: 0.2s;" onclick="openModal()">
+                    <div class="relative">
+                        <img src="https://placehold.co/1200x800/f6ad55/333333?text=Restaurant+Elb-Genuss" alt="Vorschaubild der Restaurant-Website Elb-Genuss" class="w-full transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-white text-center border-2 border-white rounded-lg px-6 py-3">
+                                <h3 class="text-2xl font-bold">Projekt ansehen</h3>
+                                <p>Klicken für Details</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Restaurant "Elb-Genuss"</h3>
+                        <p class="text-gray-600">Eine moderne Website für ein fiktives Hamburger Restaurant, inklusive Online-Speisekarte und einer simulierten Lieferando-Bestellfunktion zur Steigerung der Online-Bestellungen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technischer Vorteil Section -->
+        <section id="vorteil" class="py-20 md:py-28 bg-gray-50">
+             <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto scroll-animate">
+                    <h2 class="section-title text-gray-900">Ihr technischer Vorteil</h2>
+                    <p class="section-subtitle">Mehr als nur Design – eine solide technische Basis.</p>
+                    <div class="grid md:grid-cols-2 gap-10 items-center">
+                        <div class="text-left">
+                            <p class="text-lg text-gray-700 mb-6">
+                                Als gelernter <strong>Fachinformatiker für Systemintegration</strong> bringe ich mehr als nur Design-Kompetenz in Ihr Projekt ein. Ich verstehe die Technik, die hinter einer erfolgreichen Website steckt.
+                            </p>
+                            <ul class="space-y-4">
+                                <li class="flex items-start"><strong class="bg-blue-100 text-blue-600 rounded-full h-6 w-6 text-center mr-3 font-bold flex-shrink-0">✓</strong> <span><strong>Sicherheit:</strong> Fundiertes Wissen, um Ihre Website robust und sicher zu machen.</span></li>
+                                <li class="flex items-start"><strong class="bg-blue-100 text-blue-600 rounded-full h-6 w-6 text-center mr-3 font-bold flex-shrink-0">✓</strong> <span><strong>Performance:</strong> Optimierung für schnelle Ladezeiten und ein flüssiges Nutzererlebnis.</span></li>
+                                <li class="flex items-start"><strong class="bg-blue-100 text-blue-600 rounded-full h-6 w-6 text-center mr-3 font-bold flex-shrink-0">✓</strong> <span><strong>Zuverlässigkeit:</strong> Eine stabile technische Basis, die auch in Zukunft reibungslos funktioniert.</span></li>
+                            </ul>
+                        </div>
+                        <div class="flex justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-48 w-48 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Über Mich Section -->
+        <section id="ueber-mich" class="bg-gray-800 text-white py-20 md:py-28">
+            <div class="container mx-auto px-6 scroll-animate">
+                 <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-12 items-center">
+                    <div class="md:col-span-1 flex justify-center">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E03AQF2g5X7g5b8Wg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1668414205288?e=1758758400&v=beta&t=m8T6LQYwbZ_5d1kelpy-utInOyyF2SwDyvHFonsxUxk" alt="Profilbild von Marcel Stein" class="rounded-full h-52 w-52 object-cover border-4 border-blue-500 shadow-lg">
+                    </div>
+                    <div class="md:col-span-2 text-center md:text-left">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Ihr Webentwickler aus der Nachbarschaft</h2>
+                        <p class="text-lg text-gray-300">
+                            Mein Name ist <strong>Marcel Stein</strong> und ich habe mich darauf spezialisiert, kleinen und mittleren Unternehmen aus Rahlstedt und Umgebung zu einem starken digitalen Auftritt zu verhelfen. Als Ihr direkter Ansprechpartner vor Ort setze ich auf transparente Kommunikation und maßgeschneiderte Lösungen ohne den Umweg über große Agenturen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontakt Section -->
+        <section id="kontakt" class="bg-blue-600 text-white py-20 md:py-28">
+            <div class="container mx-auto px-6 text-center scroll-animate">
+                <h2 class="section-title text-white">Lassen Sie uns Ihr Projekt besprechen!</h2>
+                <p class="text-lg text-blue-100 max-w-3xl mx-auto mb-10">
+                    Ich freue mich darauf, von Ihrer Idee zu hören. Schreiben Sie mir eine E-Mail oder rufen Sie mich an für ein unverbindliches und kostenloses Erstgespräch.
+                </p>
+                <div class="bg-white text-gray-800 rounded-lg p-8 max-w-md mx-auto inline-block text-left shadow-2xl">
+                    <p class="font-bold text-2xl mb-6 text-center">Marcel Stein</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                            <a href="mailto:hallo@webdev-rahlstedt.de" class="text-blue-600 hover:underline">hallo@webdev-rahlstedt.de</a>
+                        </div>
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                            <a href="tel:+4917612345678" class="text-blue-600 hover:underline">01525 3069452    </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 WebDev Rahlstedt | Marcel Stein</p>
+            <p class="mt-2 text-sm">
+                <a href="#" class="hover:text-white transition-colors">Impressum</a> | 
+                <a href="#" class="hover:text-white transition-colors">Datenschutz</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Modal für Portfolio-Projekt -->
+    <div id="portfolio-modal" class="modal fixed inset-0 bg-black/80 z-50 items-center justify-center p-4">
+        <div class="modal-content bg-white rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative">
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition-colors z-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            
+            <div class="p-8 border-b sticky top-0 bg-white/95 backdrop-blur-sm">
+                <h2 class="text-3xl font-bold text-gray-900">Restaurant "Elb-Genuss"</h2>
+                <p class="text-gray-600">Beispielprojekt: Website mit Speisekarte & Lieferdienst-Integration</p>
+            </div>
+
+            <div class="p-8">
+                <!-- Projektbeschreibung -->
+                <div class="mb-10">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Projekt-Ziele & Umsetzung</h3>
+                    <p class="text-gray-600">Das Ziel war die Erstellung einer visuell ansprechenden und benutzerfreundlichen Website für das fiktive Restaurant "Elb-Genuss". Der Fokus lag auf einer klaren Präsentation der Speisen, der einfachen Kontaktaufnahme und der Integration eines Online-Bestellsystems, um den Lieferservice zu fördern und neue Kunden zu gewinnen.</p>
+                </div>
+
+                <!-- Umgesetzte Features -->
+                <div class="mb-10">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Umgesetzte Features</h3>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span>Vollständig responsives Design</span></li>
+                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span>Interaktive Speisekarte mit Bildern</span></li>
+                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span>SEO-Grundoptimierung</span></li>
+                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span>Simulierte Lieferando-Anbindung</span></li>
+                    </ul>
+                </div>
+
+                <!-- Live Demo Sektion -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Digitale Speisekarte</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="font-semibold text-lg border-b-2 border-amber-500 pb-1 mb-3">Vorspeisen</h4>
+                                <div class="flex items-start space-x-4">
+                                    <img src="https://placehold.co/100x100/f9e5d7/333333?text=Bruschetta" alt="Bruschetta" class="w-20 h-20 rounded-md object-cover flex-shrink-0">
+                                    <div>
+                                        <div class="flex justify-between"><span>Hafen-Bruschetta</span><span class="font-semibold">8,50 €</span></div>
+                                        <p class="text-sm text-gray-500">Geröstetes Brot mit Tomaten, Basilikum & Knoblauch</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg border-b-2 border-amber-500 pb-1 mb-3">Hauptgänge</h4>
+                                <div class="flex items-start space-x-4 mb-4">
+                                    <img src="https://placehold.co/100x100/d6eaf8/333333?text=Pannfisch" alt="Pannfisch" class="w-20 h-20 rounded-md object-cover flex-shrink-0">
+                                    <div>
+                                        <div class="flex justify-between"><span>Hamburger Pannfisch</span><span class="font-semibold">21,00 €</span></div>
+                                        <p class="text-sm text-gray-500">Gebratenes Fischfilet auf Bratkartoffeln mit Senfsauce</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <img src="https://placehold.co/100x100/fdebd0/333333?text=Schnitzel" alt="Schnitzel" class="w-20 h-20 rounded-md object-cover flex-shrink-0">
+                                    <div>
+                                        <div class="flex justify-between"><span>Wiener Schnitzel</span><span class="font-semibold">24,50 €</span></div>
+                                        <p class="text-sm text-gray-500">Mit lauwarmem Kartoffelsalat und Preiselbeeren</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg border-b-2 border-amber-500 pb-1 mb-3">Desserts</h4>
+                                <div class="flex items-start space-x-4">
+                                    <img src="https://placehold.co/100x100/f5b7b1/333333?text=Rote+Grütze" alt="Rote Grütze" class="w-20 h-20 rounded-md object-cover flex-shrink-0">
+                                    <div>
+                                        <div class="flex justify-between"><span>Rote Grütze</span><span class="font-semibold">9,00 €</span></div>
+                                        <p class="text-sm text-gray-500">Mit frischer Vanillesauce</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-6 self-start sticky top-[100px]">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Lieferando-Integration</h3>
+                        <div class="border rounded-lg p-4 text-center">
+                            <img src="https://placehold.co/150x50/ff8000/ffffff?text=Lieferando" alt="Lieferando Logo" class="mx-auto mb-4">
+                            <p class="text-lg font-semibold mb-1">Jetzt bei Elb-Genuss bestellen!</p>
+                            <p class="text-sm text-gray-500 mb-4">Schnell & einfach nach Hause geliefert.</p>
+                            <div class="flex items-center justify-center text-green-600 font-bold mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                <span>Geöffnet</span>
+                            </div>
+                            <button class="w-full bg-orange-500 text-white font-bold py-3 rounded-lg hover:bg-orange-600 transition-colors">
+                                Zur Bestellung
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript für Scroll-Animationen
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.scroll-animate').forEach(target => {
+                observer.observe(target);
+            });
+        });
+
+        // JavaScript für Modal
+        const modal = document.getElementById('portfolio-modal');
+        function openModal() { modal.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
+        function closeModal() { modal.classList.remove('is-open'); document.body.style.overflow = ''; }
+        modal.addEventListener('click', (event) => { if (event.target === modal) { closeModal(); } });
+        document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && modal.classList.contains('is-open')) { closeModal(); } });
+    </script>
+</body>
+</html>
