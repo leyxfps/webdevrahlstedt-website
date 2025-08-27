@@ -41,7 +41,7 @@
         .modal.is-open { display: flex; animation: fadeIn 0.3s ease; }
         .modal-content { animation: fadeInUp 0.5s ease-out forwards; }
 
-        .legal-page { display: none; } /* Versteckt die rechtlichen Seiten standardmäßig */
+        .legal-page { display: none; }
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -50,7 +50,7 @@
         <!-- Header & Navigation -->
         <header class="bg-white/90 backdrop-blur-lg shadow-md sticky top-0 z-50 transition-all duration-300">
             <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-                <a href="#" class="flex items-center space-x-3" aria-label="WebDev Rahlstedt Homepage">
+                <a href="#" onclick="showPage('main-content'); return false;" class="flex items-center space-x-3" aria-label="WebDev Rahlstedt Homepage">
                     <svg class="h-10 w-10" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="48" height="48" rx="8" fill="#1F2937"/>
                         <path d="M12 15L18 33L24 15" stroke="#2563EB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
@@ -65,9 +65,19 @@
                     <a href="#ueber-mich" class="nav-link">Über Mich</a>
                     <a href="#kontakt" class="nav-link">Kontakt</a>
                 </nav>
-                <button class="md:hidden text-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-700 z-50">
+                    <svg id="menu-open-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                    <svg id="menu-close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
                 </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg">
+                <a href="#leistungen" class="block text-center py-4 text-lg text-gray-700 hover:bg-gray-100 mobile-nav-link">Leistungen</a>
+                <a href="#portfolio" class="block text-center py-4 text-lg text-gray-700 hover:bg-gray-100 mobile-nav-link">Portfolio</a>
+                <a href="#vorteil" class="block text-center py-4 text-lg text-gray-700 hover:bg-gray-100 mobile-nav-link">Ihr Vorteil</a>
+                <a href="#ueber-mich" class="block text-center py-4 text-lg text-gray-700 hover:bg-gray-100 mobile-nav-link">Über Mich</a>
+                <a href="#kontakt" class="block text-center py-4 text-lg text-gray-700 hover:bg-gray-100 mobile-nav-link">Kontakt</a>
             </div>
         </header>
 
@@ -380,7 +390,7 @@
         modal.addEventListener('click', (event) => { if (event.target === modal) { closeModal(); } });
         document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && modal.classList.contains('is-open')) { closeModal(); } });
 
-        // NEU: JavaScript für Seitenwechsel (Impressum/Datenschutz)
+        // JavaScript für Seitenwechsel (Impressum/Datenschutz)
         const mainContent = document.getElementById('main-content');
         const impressumPage = document.getElementById('impressum');
         const datenschutzPage = document.getElementById('datenschutz');
@@ -396,6 +406,30 @@
             });
             window.scrollTo(0, 0); // Nach oben scrollen bei Seitenwechsel
         }
+        
+        // JavaScript für mobiles Menü
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const openIcon = document.getElementById('menu-open-icon');
+        const closeIcon = document.getElementById('menu-close-icon');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+            openIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+
+        mobileMenuButton.addEventListener('click', toggleMenu);
+
+        // Menü schließen, wenn ein Link geklickt wird
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    toggleMenu();
+                }
+            });
+        });
     </script>
 </body>
-</ht
+</html>
